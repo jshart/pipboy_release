@@ -1,0 +1,10 @@
+#!/bin/bash
+#cat /proc/version
+uname -osr
+uname -nm
+#cat /proc/cpuinfo | grep "model name"| head -1
+cat /proc/meminfo | grep "MemTotal"
+#echo "IP Address: `ifconfig  wlan0 | grep "inet "`"
+echo "IP Address: $(hostname -I|cut -d ' ' -f1)"
+iwgetid
+iwgetid --freq

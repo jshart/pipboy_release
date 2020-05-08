@@ -1,0 +1,2 @@
+#!/bin/bash
+mv /home/pi/.config/lxsession/LXDE-pi/autostart /home/pi/.config/lxsession/LXDE-pi/autostart.disabled

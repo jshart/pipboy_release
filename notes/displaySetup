@@ -1,0 +1,31 @@
+Open on PuTTY or Remmina a terminal and give the command:
+sudo nano /boot/config.txt
+then add this line to the bottom
+dtoverlay=piscreen,speed=16000000,rotate=90
+give Ctrl+X then save and exit.
+
+Give the command:
+sudo reboot
+
+Now the touch screen should be abled, so let's tell RPi to use it.
+
+WARNING: after next commands you will not see the Raspberry on the HDMI monitor, so if PuTTY or Remmina are not working you will not be able to see the terminal or desktop of your Raspberry.
+So check that PuTTY or Remmina are correctly working after some reboots.
+
+Connect again with PuTTY or Remmina and give the command:
+sudo apt-get install fbi
+then
+sudo reboot
+
+After reboot give:
+sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+change the line in the file:
+Option "fbdev" "/dev/fb0"
+to
+Option "fbdev" "/dev/fb1"
+Give Ctrl+X, save, exit and reboot with sudo reboot.
+
+
+And then did the following;
+xinput --set-prop 'ADS7846 Touchscreen' "Coordinate Transformation Matrix" -1 0 1 0 1 0 0 0 1
+and added that to .xsessionrc (to make persistent)

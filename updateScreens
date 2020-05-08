@@ -1,0 +1,3 @@
+#!/bin/bash
+./getInfo > UIScreens/inv.txt
+python3 location.py

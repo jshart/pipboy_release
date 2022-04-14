@@ -5,6 +5,7 @@ import os
 
 locationHost='http://ipinfo.io'
 tileHost='https://a.tile.openstreetmap.org'
+useragent='"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"'
 
 # from https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
 def deg2num(lat_deg, lon_deg, zoom):
@@ -51,7 +52,7 @@ locFile.close() #to change file access modes
 #http://a.tile.stamen.com/toner/10/506/340.png
 
 # download the image
-command="wget -O UIScreens/rawMap.png "+tileHost+"/10/{:d}/{:d}.png".format(xtile,ytile)
+command="wget --user-agent="+useragent+" -O UIScreens/rawMap.png "+tileHost+"/10/{:d}/{:d}.png".format(xtile,ytile)
 print(command)
 os.system(command)
 
